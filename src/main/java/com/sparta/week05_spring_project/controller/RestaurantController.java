@@ -19,12 +19,14 @@ public class RestaurantController {
     private final RestaurantRepository restaurantRepository;
     private final RestaurantService restaurantService;
 
+    //음식점 등록
     @PostMapping("/restaurant/register")
     public ResponseEntity<Restaurant> createRestaurant(@RequestBody RestaurantDto requestDto) {
-        Restaurant restaurant = restaurantService.registerMinOrderPrice(requestDto);
+        Restaurant restaurant = restaurantService.registerRestaurant(requestDto);
         return ResponseEntity.ok().body(restaurant);
     }
 
+    //음식점 조회
     @GetMapping("/restaurants")
     public  ResponseEntity<List<Restaurant>> getRestaurants() {
     List<Restaurant> restaurantList= restaurantRepository.findAll();
