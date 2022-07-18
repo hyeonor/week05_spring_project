@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
 
-    public Restaurant registerMinOrderPrice(RestaurantDto restaurantDto) {
+    public Restaurant registerRestaurant(RestaurantDto restaurantDto) {
         int minOrderPrice = restaurantDto.getMinOrderPrice();
         int deliveryFee = restaurantDto.getDeliveryFee();
 
