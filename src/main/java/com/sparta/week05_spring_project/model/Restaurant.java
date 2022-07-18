@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity // DB 테이블 역할을 합니다.
 public class Restaurant {
     // ID가 자동으로 생성 및 증가합니다.
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Long Id;
 
