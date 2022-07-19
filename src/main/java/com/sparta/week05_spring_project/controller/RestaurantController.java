@@ -28,8 +28,8 @@ public class RestaurantController {
 
     //음식점 조회
     @GetMapping("/restaurants")
-    public  ResponseEntity<List<Restaurant>> getRestaurants() {
-    List<Restaurant> restaurantList= restaurantRepository.findAll();
+    public ResponseEntity<List<Restaurant>> getRestaurants() {
+        List<Restaurant> restaurantList = restaurantRepository.findAll();
         return ResponseEntity.ok().body(restaurantList);
     }
 }
