@@ -1,6 +1,7 @@
 package com.sparta.week05_spring_project.controller;
 
 import com.sparta.week05_spring_project.dto.FoodDto;
+import com.sparta.week05_spring_project.dto.FoodResponseDto;
 import com.sparta.week05_spring_project.model.Food;
 import com.sparta.week05_spring_project.model.Restaurant;
 import com.sparta.week05_spring_project.repository.FoodRepository;
@@ -19,15 +20,15 @@ public class FoodController {
 
     //음식 등록
     @PostMapping("/restaurant/{restaurantId}/food/register")
-    public ResponseEntity<Food> createFood(@PathVariable Restaurant restaurantId, @RequestBody List<FoodDto> requestDto) {
+    public ResponseEntity<Food> createFood(@PathVariable Long restaurantId, @RequestBody List<FoodDto> requestDto) {
         foodService.registerFood(restaurantId, requestDto);
         return ResponseEntity.ok().body(null);
     }
 
     //메뉴판 조회
     @GetMapping("/restaurant/{restaurantId}/foods")
-    public ResponseEntity<List<Food>> getFoods(@PathVariable Restaurant restaurantId) {
-        List<Food> foodList = foodRepository.findAllByRestaurant(restaurantId);
-        return ResponseEntity.ok().body(foodList);
+    public ResponseEntity<List<FoodResponseDto>> getFoods(@PathVariable Long restaurantId) {
+        List<FoodResponseDto> foods = foodService.showFood(restaurantId);
+        return ResponseEntity.ok().body(foods);
     }
 }

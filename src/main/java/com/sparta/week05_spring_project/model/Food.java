@@ -27,9 +27,9 @@ public class Food {
     @JoinColumn(name = "RESTAURANT_ID", nullable = false)
     private Restaurant restaurant;
 
-    public Food(Restaurant restaurantId, FoodDto foodDto) {
+    public Food(Restaurant restaurant, FoodDto foodDto) {
         this.name = foodDto.getName();
         this.price = foodDto.getPrice();
-        this.restaurant = restaurantId;
+        this.restaurant = restaurant;
     }
 }
